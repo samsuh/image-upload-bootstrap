@@ -139,8 +139,10 @@
                 </div>
 
                 <div class="modal-footer flex-wrap">
-                  <button type="button" onclick="removeUpload();" class="btn btn-danger btn-block">Cancel</button>
-                  <button type="button" onclick="upload();" class="btn btn-primary btn-block">Upload</button>
+                  <button type="button" data-toggle="modal" data-target="#uploadModal" class="btn btn-secondary">Close</button>
+                  <button type="button" onclick="removeUpload();" class="btn btn-danger">Remove</button>
+                  <button type="button" onclick="upload();" class="btn btn-success">Upload</button>
+
                 </div>
               </div>
             </div>
