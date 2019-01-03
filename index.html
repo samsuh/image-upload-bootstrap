@@ -29,8 +29,8 @@
           <li class="nav-item">
             <a href="#wp-head-section" class="nav-link">Whitepaper</a>
           </li>
-          <li class="wp-item">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#contactModal">Contact Us</button>
+          <li class="nav-item">
+            <a data-toggle="modal" data-target="#contactModal" class="nav-link">Contact</a>
           </li>
 
           <!-- <li class="nav-item">
@@ -117,24 +117,30 @@
                     <span>&times;</span>
                   </button>
                 </div>
+
                 <div class="modal-body">
                   <form>
-                    <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="message">Message</label>
-                      <textarea class="form-control"></textarea>
-                    </div>
+                    <!-- Drop Zone -->
+                    <div class="file-upload">
+                  		<div class="image-upload-wrap">
+                  			<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                  			<div class="drag-text">
+                  				<h3>Drag and drop here<br>or<br> click to add image</h3>
+                  			</div>
+                  		</div>
+                  		<div class="file-upload-content">
+                  			<img class="file-upload-image" src="#" alt="your image" />
+                  			<div class="image-title-wrap">
+                          <span class="image-title">Uploaded Image</span>
+                  			</div>
+                  		</div>
+                  	</div>
                   </form>
                 </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary btn-block">Begin Upload</button>
+
+                <div class="modal-footer flex-wrap">
+                  <button type="button" onclick="removeUpload();" class="btn btn-danger btn-block">Cancel</button>
+                  <button type="button" onclick="upload();" class="btn btn-primary btn-block">Upload</button>
                 </div>
               </div>
             </div>
@@ -285,30 +291,7 @@
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-  <script>
-    // Get the current year for the copyright
-    $('#year').text(new Date().getFullYear());
-
-    // Init Scrollspy
-    $('body').scrollspy({ target: '#main-nav' });
-
-    // Smooth Scrolling
-    $("#main-nav a").on('click', function (event) {
-      if (this.hash !== "") {
-        event.preventDefault();
-
-        const hash = this.hash;
-
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top
-        }, 800, function () {
-
-          window.location.hash = hash;
-        });
-      }
-    });
-  </script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
