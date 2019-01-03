@@ -107,50 +107,12 @@
           <h1 class="display-4">Upload Image</h1>
           <p class="lead">Upload an Image into Archon's network.</p>
           <button class="btn btn-success" data-toggle="modal" data-target="#uploadModal">Upload Image</button>
-          <!-- UPLOAD MODAL -->
-          <div class="modal fade text-dark" id="uploadModal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Upload Image</h5>
-                  <button class="close" data-dismiss="modal">
-                    <span>&times;</span>
-                  </button>
-                </div>
 
-                <div class="modal-body">
-                  <form>
-                    <!-- Drop Zone -->
-                    <div class="file-upload">
-                  		<div class="image-upload-wrap">
-                  			<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-                  			<div class="drag-text">
-                  				<h3>Drag and drop here<br>or<br> click to add image</h3>
-                  			</div>
-                  		</div>
-                  		<div class="file-upload-content">
-                  			<img class="file-upload-image" src="#" alt="your image" />
-                  			<div class="image-title-wrap">
-                          <span class="image-title">Uploaded Image</span>
-                  			</div>
-                  		</div>
-                  	</div>
-                  </form>
-                </div>
-
-                <div class="modal-footer flex-wrap">
-                  <button type="button" data-toggle="modal" data-target="#uploadModal" class="btn btn-secondary">Close</button>
-                  <button type="button" onclick="removeUpload();" class="btn btn-danger">Remove</button>
-                  <button type="button" onclick="upload();" class="btn btn-success">Upload</button>
-
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- UPLOAD SECTION -->
   <section id="upload-section" class="bg-light text-muted py-5">
@@ -255,7 +217,55 @@
       </div>
     </div>
   </footer>
+  <!-- UPLOAD MODAL -->
+  <div class="modal fade text-dark" id="uploadModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Upload Image</h5>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
 
+        <div class="modal-body">
+            <!-- Drop Zone -->
+            <div class="form-group">
+              <input type="input" class="form-control" id="name-input" placeholder="Username" required />
+              <small id="name-help" class="form-text text-muted">Required to generate unique URL</small>
+              <div class="file-upload">
+                <div class="image-upload-wrap">
+                  <input class="file-upload-input" id="file-input" type='file' onchange="readURL(this);" accept="image/*" />
+                  <div class="drag-text">
+                    <h3>Drag and drop here<br>or<br> click to add image</h3>
+                  </div>
+                </div>
+                <div class="file-upload-content">
+                  <img class="file-upload-image" src="#" alt="your image" />
+                  <div class="image-title-wrap">
+                    <span class="image-title">Uploaded Image</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Display Upload Status after Uploading -->
+            <div style="display: none;" id="uploadStatus">
+              <div>Archon url: <span id="archonUrl"></span></div>
+              <div>Number of uploads still in progress: <span id="numProgress">0</span>/<span id="totalProgress">0</span></div>
+              <div>Number of successful uploads: <span id="numOk">0</span>/<span id="totalOk">0</span></div>
+              <div>Number of failed uploads: <span id="numBad">0</span>/<span id="totalBad">0</span></div>
+            </div>
+        </div>
+
+        <div class="modal-footer flex-wrap">
+          <button type="button" data-toggle="modal" data-target="#uploadModal" class="btn btn-secondary">Close</button>
+          <button type="button" onclick="removeUpload();" class="btn btn-danger">Remove</button>
+          <button type="button" onclick="upload();" class="btn btn-success">Upload</button><br>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- CONTACT MODAL -->
   <div class="modal fade text-dark" id="contactModal">
     <div class="modal-dialog">
